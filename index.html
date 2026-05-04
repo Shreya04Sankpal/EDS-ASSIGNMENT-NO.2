@@ -1,167 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vishv Chavan — EDS Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --accent: #4f46e5;
+      --border: #e2e8f0;
+      --card-bg: #ffffff;
+      --radius: 12px;
+    }
 
-<title>Shreya Sankpal Portfolio</title>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      background-image: radial-gradient(at 0% 0%, hsla(225,39%,30%,0.02) 0, transparent 50%), 
+                        radial-gradient(at 50% 0%, hsla(225,39%,30%,0.02) 0, transparent 50%);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 80px 20px;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
 
-<style>
-body {
-    margin: 0;
-    background: #ffffff;
-    color: #111111;
-    font-family: 'DM Sans', sans-serif;
-}
+    header {
+      margin-bottom: 60px;
+      text-align: center;
+    }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-}
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px 0;
+      color: var(--text);
+      background: linear-gradient(to bottom right, #0f172a, #334155);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-/* Header */
-.header {
-    border-bottom: 3px solid #111;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-}
+    .subtitle {
+      font-size: 18px;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 32px 0;
+      letter-spacing: -0.01em;
+    }
 
-.header h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    margin: 0;
-}
+    .info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      padding: 1px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
 
-.header p {
-    margin: 5px 0;
-    color: #aaaaaa;
-}
+    .info div {
+      background: var(--card-bg);
+      padding: 16px 20px;
+      color: var(--text-muted);
+    }
 
-/* List */
-.list {
-    display: flex;
-    flex-direction: column;
-}
+    .info span {
+      font-weight: 600;
+      color: var(--text);
+      margin-right: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 10px;
-    border: 1px solid #e5e5e5;
-    text-decoration: none;
-    color: #111;
-    transition: 0.2s;
-}
+    section {
+      margin-bottom: 56px;
+    }
 
-.row:hover {
-    background: #111;
-    color: #fff;
-    padding-left: 20px;
-}
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-.left {
-    display: flex;
-    gap: 10px;
-}
+    h2::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--border);
+    }
 
-.number {
-    color: #aaaaaa;
-}
+    .link-list {
+      display: grid;
+      gap: 16px;
+    }
 
-.arrow {
-    font-size: 18px;
-}
-</style>
+    .link-item {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--card-bg);
+      position: relative;
+    }
 
+    .link-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    }
+
+    .link-title {
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .link-item:hover .link-title {
+      color: var(--accent);
+    }
+
+    .link-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .link-item::after {
+      content: "→";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: all 0.2s ease;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .link-item:hover::after {
+      opacity: 1;
+      right: 16px;
+    }
+
+    footer {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .info { grid-template-columns: 1fr; gap: 10px; }
+      h1 { font-size: 28px; }
+      body { padding: 40px 20px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <div class="container">
 
-    <!-- Header -->
-    <div class="header">
-        <h1>Shreya Shrikrishna Sankpal</h1>
-        <p>PRN: 202501040120</p>
-        <p>Class: CS2 | Batch: C21</p>
-        <p>Institute: MITAOE</p>
-    </div>
+    <header>
+      <h1>Vishv Suresh Chavan</h1>
+      <p class="subtitle">Emerging Development Skills Portfolio · 2025–26</p>
+      
+      <div class="info">
+        <div><span>PRN:</span> 202501040122</div>
+        <div><span>Class:</span> CS2</div>
+        <div><span>Batch:</span> C21</div>
+        <div><span>Institute:</span> MITAOE</div>
+      </div>
+    </header>
 
-    <!-- List -->
-    <div class="list">
-
-        <a class="row" href="https://youtu.be/JEYjQUazFlw?si=oPW5XH0o62aYn3LG" target="_blank">
-            <div class="left">
-                <div class="number">01</div>
-                <div>Project Video</div>
-            </div>
-            <div class="arrow">↗</div>
+    <section>
+      <h2>Submissions</h2>
+      <div class="link-list">
+        <a href="https://drive.google.com/file/d/1UBF3tQjqpvNypo2HQu_I7ARvz56bQHP9/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Video Demonstration</span>
+          <span class="link-desc">Project overview and functionality demo</span>
         </a>
-
-        <a class="row" href="https://drive.google.com/file/d/1CSST_mJv4_hWUEHrcFMLzEAu5Ykh5Wlz/view?usp=sharing" target="_blank">
-            <div class="left">
-                <div class="number">02</div>
-                <div>Cisco Certificate</div>
-            </div>
-            <div class="arrow">↗</div>
+        <a href="https://drive.google.com/file/d/1d_bEQWqgfKQnD3B4OueWEF2bUFlkxpW6/view?usp=sharing" target="_blank" class="link-item">
+          <span class="link-title">CodeTantra Completion</span>
+          <span class="link-desc">Course progress and completion status</span>
         </a>
-
-        <a class="row" href="https://drive.google.com/file/d/1eIBjJWbFvDhPGeTNljg_EORF5UXMIyLh/view?usp=sharing" target="_blank">
-            <div class="left">
-                <div class="number">03</div>
-                <div>Theory Completion</div>
-            </div>
-            <div class="arrow">↗</div>
+        <a href="https://drive.google.com/file/d/1l87qG91sgpwWRYGdCxr_x1rx9FIZKhto/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Certificates Bundle</span>
+          <span class="link-desc">Full collection of achievement certificates</span>
         </a>
+      </div>
+    </section>
 
-        <a class="row" href="https://drive.google.com/file/d/1MHLhjtXgpAEV5OVecPLQS_I7ARI2YCaY/view?usp=sharing" target="_blank">
-            <div class="left">
-                <div class="number">04</div>
-                <div>Practical 1</div>
-            </div>
-            <div class="arrow">↗</div>
+    <section>
+      <h2>Practical Submissions</h2>
+      <div class="link-list">
+        <a href="https://drive.google.com/file/d/1csv0DB5WEP_CBrXWcCBho4gv7Bq9ZT6S/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Practical 1</span>
+          <span class="link-desc">Basic Python programming fundamentals</span>
         </a>
-
-        <a class="row" href="https://drive.google.com/file/d/14yHjOSKEJJ9tGnXbTJPrI-7NlTAmbkto/view?usp=sharing" target="_blank">
-            <div class="left">
-                <div class="number">05</div>
-                <div>Practical 2</div>
-            </div>
-            <div class="arrow">↗</div>
+        <a href="https://drive.google.com/file/d/1M2wTLjKzuhvIR7v47QOUxnADynbN54pw/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Practical 2</span>
+          <span class="link-desc">Implementation of Python data structures</span>
         </a>
-
-        <a class="row" href="https://drive.google.com/file/d/1SFo4VaXL4UmuQwfcQvahHb3AoA7kahNE/view?usp=sharing" target="_blank">
-            <div class="left">
-                <div class="number">06</div>
-                <div>Practical 3</div>
-            </div>
-            <div class="arrow">↗</div>
+        <a href="https://drive.google.com/file/d/1LvIpVezOkeaknJ4Gtpc_KeOM1krM2ZUF/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Practical 3</span>
+          <span class="link-desc">Numerical computing using NumPy</span>
         </a>
-
-        <a class="row" href="https://drive.google.com/file/d/1Ns5tKpc4GqCFDZ1MDUVq4LvVJSLIo3rZ/view?usp=drive_link" target="_blank">
-            <div class="left">
-                <div class="number">07</div>
-                <div>Practical 4</div>
-            </div>
-            <div class="arrow">↗</div>
+        <a href="https://drive.google.com/file/d/1SfpQWadaM3Xc1wZM0NmUN0CUm_-MDZzs/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Practical 4</span>
+          <span class="link-desc">Data analysis and manipulation with Pandas</span>
         </a>
-
-        <a class="row" href="https://drive.google.com/file/d/1zkfFm-CA-oIwwDRIdnRdrZP2sF4WJvDn/view?usp=sharing" target="_blank">
-            <div class="left">
-                <div class="number">08</div>
-                <div>Practical 5</div>
-            </div>
-            <div class="arrow">↗</div>
+        <a href="https://drive.google.com/file/d/1sFPWq0Tds1oov6flFGvBv8ybyx3Evfze/view?usp=drivesdk" target="_blank" class="link-item">
+          <span class="link-title">Practical 5</span>
+          <span class="link-desc">Data visualization using Matplotlib</span>
         </a>
+      </div>
+    </section>
 
-    </div>
+    <footer>
+      Vishv Suresh Chavan · 202501040122 · MIT Academy of Engineering · EDS Course 2025–26
+    </footer>
 
-</div>
+  </div>
 
 </body>
 </html>
